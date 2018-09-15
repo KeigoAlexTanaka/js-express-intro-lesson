@@ -54,6 +54,26 @@ app.listen(PORT, () => {
 
 Our server won't do anything just yet, this is just boilerplate to use Express.
 
+## Running an Express server with `nodemon`
+
+A web server is a long-running process, which you could just run with `node server.js`. However, since you'll be editing the server files and continuously testing it, you would hae to stop the `node server.js` process and restart it after every change. 
+
+Let's use a cool package `nodemon` instead. Add it to your project:
+
+```
+npm install nodemon
+```
+
+Then modify the `scripts` section in the `package.json` file to add a `start` script:
+
+```
+"scripts": {
+  "start": "nodemon server.js"
+}
+```
+
+This way, whenever we run `npm start`, nodemon will run our Express server, and automatically restart it whenever we edit a file. Pretty darn cool!
+
 ## Our first route
 
 In Express, you define a **route** in a `server.js` file. A route is a path the user makes an HTTP request for like `/`, and a handler function that takes care of that request.
