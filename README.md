@@ -120,6 +120,11 @@ app.get('/article/:slug', (request, response) => {
 
 In the path definition, add a colon before a meaningful name for the parameter. You'll have access to the dynamic value inside of the `request.params` object.
 
-## Route Parameter Exercise
+## Route Parameter Exercises
 
-In the server definition in `server.js`, create a route for the path `/student/:name`, so that a visitor could enter `/student/pedro` or `/student/jimbo`. The route should respond "pedro is in our class" or "tiffany is in our class" if the student is in the class, and "who is jimbo?" or "who is peter?" if the student is not in our class.
+1. In the server definition in `server.js`, create a route for the path `/student/:name`, so that a visitor could enter `/student/pedro` or `/student/jimbo`. The route should respond "pedro is in our class" or "tiffany is in our class" if the student is in the class, and "who is jimbo?" or "who is peter?" if the student is not in our class.
+1. Create a route for the path `/year/:year`, which would match `/year/2001` or `/year/2018`. If the year route parameter is a valid year, it should respond like this:
+    - "2018 is this year!"
+    - "2013 was five years ago"
+    - "2020 is in two years"
+    - "Nope, erfaderf is not a year"
