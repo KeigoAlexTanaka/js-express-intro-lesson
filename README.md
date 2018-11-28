@@ -55,23 +55,6 @@ app.listen(PORT, () => {
 
 Our server won't do anything just yet, this is just boilerplate to use Express.
 
-## Running an Express server with `nodemon`
-
-A web server is a long-running process, which you could just run with `node server.js`. However, since you'll be editing the server files and continuously testing it, you would hae to stop the `node server.js` process and restart it after every change. 
-
-Let's use a cool package `nodemon` instead. Add it to your project:
-
-```
-npm install nodemon
-```
-
-Then modify the `scripts` section in the `package.json` file to add a `start` script:
-
-```
-"scripts": {
-  "start": "nodemon server.js"
-}
-```
 
 This way, whenever we run `npm start`, nodemon will run our Express server, and automatically restart it whenever we edit a file. Pretty darn cool!
 
@@ -90,6 +73,25 @@ Whenever an HTTP request to `http://localhost:5678/` is made, the handler functi
 You might end up doing a lot in these route handler functions. One thing they have to do is **send** an HTTP response back, which we're doing here with `res()`
 
 When a user visits `http://localhost:5678/` in the browser, they'll see "Hello there!" displayed on the page. Note that if they go to `http://localhost:5678/news`, we see an error message "Cannot GET /news" because that's a different path that we haven't defined a route for.
+
+## Running an Express server with `nodemon`
+
+A web server is a long-running process, which you could just run with `node server.js`. However, since you'll be editing the server files and continuously testing it, you would hae to stop the `node server.js` process and restart it after every change. 
+
+Let's use a cool package `nodemon` instead. Add it to your project:
+
+```
+npm install nodemon
+```
+
+Then modify the `scripts` section in the `package.json` file to add a `start` script:
+
+```
+"scripts": {
+  "start": "nodemon server.js"
+}
+```
+
 
 ## Exercise
 
