@@ -178,7 +178,7 @@ app.get('/tweets/:id', async (req, res) => {
 		const id = parseInt(req.params.id);
 		const tweet = await Tweet.findByPk(id);
 		res.json({tweet: tweet.dataValues});
-	catch(e) {
+	} catch(e) {
 		console.log(e);
 		res.send(404);
 	}
