@@ -116,7 +116,7 @@ When writing an Express route, you can access the dynamic parts of the path by d
 
 ```js
 app.get('/article/:slug', (req, res) => {
-  console.log(req);
+  console.log(req.params);
   // { slug: 'how-to-improve-your-drumming' }
 });
 ```
