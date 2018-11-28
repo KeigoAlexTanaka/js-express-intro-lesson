@@ -173,7 +173,7 @@ app.get('/tweets', async (req, res) => {
 We can also use a param in our sequelize operations:
 
 ```js
-app.get('/tweets:id', async (req, res) => {
+app.get('/tweets/:id', async (req, res) => {
 	try {
 		const id = parseInt(req.params.id);
 		const tweet = await Tweet.findByPk(id);
