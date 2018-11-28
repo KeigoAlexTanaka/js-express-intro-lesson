@@ -147,7 +147,9 @@ Further, we can gather data from the db to include in the response.  Recall that
 
 ```js
 app.get('/tweets', async (req, res) => {
-	const tweets = await Tweet.findAll();
+	const tweetData = await Tweet.findAll();
+	const tweets = tweetData.map(tweet => tweet.dataValues);
+
 	res.json({tweets: tweets});
 });
 ```
@@ -157,7 +159,9 @@ In order to avoid potentially non-terminating requests in the case of errors, le
 ```js
 app.get('/tweets', async (req, res) => {
 	try {
-		const tweets = await Tweet.findAll();
+		const tweetData = await Tweet.findAll();
+		const tweets = tweetData.map(tweet => tweet.dataValues);
+	
 		res.json({tweets: tweets});
 	} catch(e) {
 		console.log(e);
@@ -173,7 +177,7 @@ app.get('/tweets:id', async (req, res) => {
 	try {
 		const id = parseInt(req.params.id);
 		const tweet = await Tweet.findByPk(id);
-		res.json({tweet: tweet});
+		res.json({tweet: tweet.dataValues});
 	catch(e) {
 		console.log(e);
 		res.send(404);
