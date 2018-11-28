@@ -64,7 +64,7 @@ In Express, you define a **route** in a `server.js` file. A route is a path the 
 
 ```js
 app.get('/', (req, res) => {
-  res("Hello there!");
+  res.send("Hello there!");
 });
 ```
 
