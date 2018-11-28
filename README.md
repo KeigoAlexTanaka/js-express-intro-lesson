@@ -131,3 +131,51 @@ In the path definition, add a colon before a meaningful name for the parameter. 
     - "2013 was five years ago"
     - "2020 is in two years"
     - "Nope, erfaderf is not a year"
+
+## Response Types and including data from Sequelize
+
+`send` is a very generic method to use for sending a response from express.  Since we'll be using express as a JSON api, we can use the `json` method to return a json response:
+
+```js
+app.get('/', async (req, res) => {
+	res.json({msg: 'it all worked!'});
+})
+```
+
+
+Further, we can gather data from the db to include in the response.  Recall that database operations must be handled asynchronously:
+
+```js
+app.get('/tweets', async (req, res) => {
+	const tweets = await Tweet.findAll();
+	res.json({tweets: tweets});
+});
+```
+
+In order to avoid potentially non-terminating requests in the case of errors, let's handle the sad path appropriately:
+
+```js
+app.get('/tweets', async (req, res) => {
+	try {
+		const tweets = await Tweet.findAll();
+		res.json({tweets: tweets});
+	} catch(e) {
+		console.log(e);
+		res.json({error: e});
+	}
+});
+```
+
+We can also use a param in our sequelize operations:
+
+```js
+app.get('/tweets:id', async (req, res) => {
+	try {
+		const id = parseInt(req.params.id);
+		const tweet = await Tweet.findByPk(id);
+		res.json({tweet: tweet});
+	catch(e) {
+		console.log(e);
+		res.send(404);
+	}
+});
