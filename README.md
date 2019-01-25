@@ -1,4 +1,4 @@
-# Express introduction lesson
+# Express Introduction Lesson
 
 ## Learning Objectives
 
