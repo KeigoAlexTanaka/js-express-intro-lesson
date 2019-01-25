@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
 });
 ```
 
-Whenever an HTTP request to `http://localhost:5678/` is made, the handler function is called. This function has access to two variables: `req` and `resresponse` which represent the HTTP request (any information the user sent along to us) and the HTTP response.
+Whenever an HTTP request to `http://localhost:5678/` is made, the handler function is called. This function has access to two variables: `req` and `res` which represent the HTTP request (any information the user sent along to us) and the HTTP response.
 
 You might end up doing a lot in these route handler functions. One thing they have to do is **send** an HTTP response back, which we're doing here with `res()`
 
